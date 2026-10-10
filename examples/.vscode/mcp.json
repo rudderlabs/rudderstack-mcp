@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "rudderstack": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.rudderstack.com/mcp"
+      ]
+    }
+  }
+}
