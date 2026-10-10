@@ -1,0 +1,76 @@
+name: Bug report
+description: Report a problem with the hosted RudderStack MCP server or these setup instructions
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Do not post tokens, authorization codes, client secrets, workspace IDs, event payloads, customer data, or credentials. Report security vulnerabilities privately to security@rudderstack.com instead.
+  - type: input
+    id: client
+    attributes:
+      label: MCP client and version
+      description: For example, Claude Desktop 1.2.3, VS Code 1.xx, or Cursor 1.xx.
+      placeholder: Client name and version
+    validations:
+      required: true
+  - type: input
+    id: endpoint
+    attributes:
+      label: Endpoint
+      description: Confirm which endpoint you configured. Do not include query parameters or credentials.
+      value: https://mcp.rudderstack.com/mcp
+    validations:
+      required: true
+  - type: dropdown
+    id: auth_step
+    attributes:
+      label: Authentication or setup step
+      options:
+        - Adding or starting the MCP server
+        - Browser login
+        - OAuth authorization
+        - Returning to the MCP client
+        - Listing tools
+        - Calling a tool
+        - Reconnecting or refreshing credentials
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: tool
+    attributes:
+      label: Tool name
+      description: If a tool call failed, provide its exact name. Do not include arguments containing sensitive data.
+      placeholder: Optional
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include a redacted error message or status code. Remove all secrets, IDs, payloads, and customer data.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest safe sequence that reproduces the issue.
+    validations:
+      required: true
+  - type: checkboxes
+    id: redaction
+    attributes:
+      label: Redaction confirmation
+      options:
+        - label: I removed tokens, authorization codes, client secrets, cookies, workspace IDs, write keys, event payloads, customer data, and other credentials.
+          required: true
+        - label: This report does not describe a security vulnerability.
+          required: true

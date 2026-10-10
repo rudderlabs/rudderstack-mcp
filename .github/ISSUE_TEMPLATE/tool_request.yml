@@ -1,0 +1,60 @@
+name: Tool request
+description: Request a new hosted RudderStack MCP capability
+title: "[Tool request]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the workflow, not customer-specific data. Do not include tokens, workspace IDs, event payloads, customer data, or credentials.
+  - type: input
+    id: client
+    attributes:
+      label: MCP client and version
+      placeholder: Client name and version
+    validations:
+      required: true
+  - type: input
+    id: tool_name
+    attributes:
+      label: Proposed tool name
+      description: Use a short snake_case name if you have one in mind.
+      placeholder: example_tool_name
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: What user goal should this tool support?
+    validations:
+      required: true
+  - type: dropdown
+    id: capability
+    attributes:
+      label: Capability type
+      options:
+        - Read-only
+        - Non-persisting execution or preview
+        - Write or control-plane change
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: inputs_outputs
+    attributes:
+      label: Expected inputs and outputs
+      description: Use fictional examples and omit real workspace IDs, payloads, customer data, and credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Current workaround
+      description: How do you complete this task today?
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I used only fictional or redacted examples and included no secrets or customer data.
+          required: true

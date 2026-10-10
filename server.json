@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.rudderlabs/rudderstack-mcp",
+  "title": "RudderStack",
+  "description": "Inspect and manage RudderStack pipelines, schemas, transformations, audiences, and workspaces.",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.rudderstack.com/docs/ai-features/rudderstack-mcp/",
+  "repository": {
+    "url": "https://github.com/rudderlabs/rudderstack-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.rudderstack.com/mcp"
+    }
+  ]
+}
