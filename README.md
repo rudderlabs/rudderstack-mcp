@@ -1,6 +1,6 @@
 # RudderStack MCP
 
-[![AllMCPs Verified](https://allmcps.com/api/badge/rudderstack-mcp?style=shield)](https://allmcps.com/mcp/rudderstack-mcp)
+[![AllMCPs Verified](https://allmcps.com/api/badge/rudderstack-mcp)](https://allmcps.com/mcp/rudderstack-mcp?verify=1d39113b-927a-479a-a499-80c4a7be74e4)
 
 Connect AI assistants and developer tools to your RudderStack workspace through the hosted [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server.
 
