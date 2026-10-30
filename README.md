@@ -37,7 +37,9 @@ See [`examples/.mcp.json`](examples/.mcp.json) for the corresponding JSON config
 
 ### VS Code
 
-Create `.vscode/mcp.json` in your workspace using [`examples/.vscode/mcp.json`](examples/.vscode/mcp.json), then start the `rudderstack` server from VS Code's MCP controls.
+Create `.vscode/mcp.json` in your workspace using [`examples/.vscode/mcp.json`](examples/.vscode/mcp.json), then start the `rudderstack` server from VS Code's MCP controls. This example uses `mcp-remote` to connect to the hosted endpoint; sign in through your browser when prompted. You do not need to supply a client ID or client secret.
+
+If a native HTTP connection in VS Code asks for a client ID, use the stdio example instead. Native VS Code OAuth requires the hosted server to allow the exact callback URL `https://vscode.dev/redirect`; supplying a client ID is not a workaround for a missing redirect allowlist entry.
 
 ### Cursor
 
