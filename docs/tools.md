@@ -2,7 +2,7 @@
 
 This inventory covers tools exposed by the hosted user endpoint at `https://mcp.rudderstack.com/mcp`. Availability depends on your RudderStack plan, workspace permissions, enabled products, and server configuration.
 
-Use `user_details` to find your accessible workspace IDs. Every workspace tool requires a `workspace_id` (or `workspaceId`) on each call; omitting it fails with `workspace_id is required`. `user_details` no longer returns `selectedWorkspace` or `isDefault`. The endpoint is stateless: it neither issues nor reads `Mcp-Session-Id`, and there is no active workspace to switch.
+Use `user_details` to find your accessible workspace IDs. Every workspace tool requires a `workspace_id` (or `workspaceId`) on each call; omitting it fails with `workspace_id is required`. The endpoint is stateless and does not use `Mcp-Session-Id`.
 
 ## Classifications
 
@@ -71,7 +71,7 @@ The hosted service also provides a separately controlled read-only web surface. 
 | `get_warehouse_uploads` | Read | Get warehouse upload history, status, and optional table details. |
 | `get_warehouse_upload_with_tables` | Read | Get table-level details for one warehouse upload. |
 | `get_retl_source_syncs` | Read | Get Reverse ETL sync results, metrics, and timing. |
-| `get_retl_failed_records` | Read | Get failed records for a Reverse ETL sync run; returned errors may contain customer data. |
+| `get_retl_failed_records` | Read | Get failed records for a Reverse ETL sync run. |
 | `list_tracking_plans` | Read | List tracking plans and governance rules. |
 | `list_tracking_plan_events` | Read | List tracking-plan events and optional schemas. |
 | `list_data_catalog_events` | Read | List events in the data catalog. |
@@ -81,12 +81,10 @@ The hosted service also provides a separately controlled read-only web surface. 
 
 | Tool | Access | Purpose |
 | --- | --- | --- |
-| `get_live_events` | Read | Poll real-time source, destination, and transformation events. Live event content can be sensitive even when fields are redacted or hashed. |
+| `get_live_events` | Read | Poll real-time source, destination, and transformation events. |
 | `list_profiles` | Read | List profile projects for the workspace. |
 | `get_profile_details` | Read | Get profile models, statistics, cohort features, or history. |
 | `get_profile_artifacts` | Read | List task artifacts or retrieve artifact-file content. |
-
-`get_live_events` is listed as **Read** here because it polls events without persisting configuration, but its server-side `readOnly: false` annotation reflects that it enables live-event capture. Review its output as potentially sensitive.
 
 ## Audit and audiences
 
