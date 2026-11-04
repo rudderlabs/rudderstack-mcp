@@ -2,21 +2,22 @@
 
 This inventory covers tools exposed by the hosted user endpoint at `https://mcp.rudderstack.com/mcp`. Availability depends on your RudderStack plan, workspace permissions, enabled products, and server configuration.
 
+Use `user_details` to find your accessible workspace IDs. Every workspace tool requires a `workspace_id` (or `workspaceId`) on each call; omitting it fails with `workspace_id is required`. `user_details` no longer returns `selectedWorkspace` or `isDefault`. The endpoint is stateless: it neither issues nor reads `Mcp-Session-Id`, and there is no active workspace to switch.
+
 ## Classifications
 
 - **Read** — inspects RudderStack configuration, metadata, metrics, or documentation without persisting a control-plane change.
 - **Sensitive execution** — does not persist control-plane configuration, but executes transformation code or submits temporary warehouse work. Review inputs and outputs carefully.
-- **Write** — persists session state or changes RudderStack control-plane configuration. MCP clients should request confirmation before invocation.
+- **Write** — changes RudderStack control-plane configuration or triggers a sync. MCP clients should request confirmation before invocation.
 
-The hosted service also provides a separately controlled read-only web surface. Its allow-list includes the tools marked **Read** or **Sensitive execution** below except `user_details`; write tools are excluded.
+The hosted service also provides a separately controlled read-only web surface. Its allow-list includes the tools marked **Read** or **Sensitive execution** below except `user_details`, `plan_audience_activation`, and `list_sync_runs`; write tools are excluded. The allow-list includes `get_retl_failed_records`.
 
 ## User and workspace
 
 | Tool | Access | Purpose |
 | --- | --- | --- |
-| `user_details` | Read | Get the current user, accessible workspaces, and active workspace context. |
-| `user_switch_workspace` | **Write** | Change and persist the active workspace for the MCP session. |
-| `get_workspace_settings` | Read | Get details and settings for the current workspace. |
+| `user_details` | Read | Get the current user and accessible workspace IDs. |
+| `get_workspace_settings` | Read | Get details and settings for the specified workspace. |
 | `list_connections` | Read | List source-to-destination connections. |
 | `get_billing_details` | Read | Get contract volume, plan, organization, and owner information. |
 
@@ -70,6 +71,7 @@ The hosted service also provides a separately controlled read-only web surface. 
 | `get_warehouse_uploads` | Read | Get warehouse upload history, status, and optional table details. |
 | `get_warehouse_upload_with_tables` | Read | Get table-level details for one warehouse upload. |
 | `get_retl_source_syncs` | Read | Get Reverse ETL sync results, metrics, and timing. |
+| `get_retl_failed_records` | Read | Get failed records for a Reverse ETL sync run; returned errors may contain customer data. |
 | `list_tracking_plans` | Read | List tracking plans and governance rules. |
 | `list_tracking_plan_events` | Read | List tracking-plan events and optional schemas. |
 | `list_data_catalog_events` | Read | List events in the data catalog. |
@@ -83,6 +85,8 @@ The hosted service also provides a separately controlled read-only web surface. 
 | `list_profiles` | Read | List profile projects for the workspace. |
 | `get_profile_details` | Read | Get profile models, statistics, cohort features, or history. |
 | `get_profile_artifacts` | Read | List task artifacts or retrieve artifact-file content. |
+
+`get_live_events` is listed as **Read** here because it polls events without persisting configuration, but its server-side `readOnly: false` annotation reflects that it enables live-event capture. Review its output as potentially sensitive.
 
 ## Audit and audiences
 
@@ -104,6 +108,17 @@ The hosted service also provides a separately controlled read-only web surface. 
 | `get_audience_destination_schema` | Read | Discover valid destination fields and destination-side audiences. |
 | `connect_audience_destination` | **Write** | Persist an audience-to-destination activation connection. |
 
+## Audience activation (rETL)
+
+These four tools are available only for workspaces with the `MCPAudienceActivation` feature flag enabled.
+
+| Tool | Access | Purpose |
+| --- | --- | --- |
+| `plan_audience_activation` | Read | Plan an audience activation and review the configuration before creation. |
+| `create_audience_activation` | **Write** | Create a destination and Reverse ETL connection for an audience activation. |
+| `trigger_sync` | **Write** | Trigger an audience-activation sync. |
+| `list_sync_runs` | Read | List recent audience-activation sync runs and their results. |
+
 ## Documentation and service status
 
 These tools are registered only when the corresponding hosted integration is configured.
@@ -117,6 +132,6 @@ These tools are registered only when the corresponding hosted integration is con
 
 ## Inventory summary
 
-When all optional integrations are configured, the endpoint exposes **58 tools**: 49 read tools, 3 sensitive-execution tools, and 6 write tools. Four read tools are conditional, so a typical workspace may expose fewer tools.
+With optional hosted integrations configured and the audience-activation flag enabled for the workspace, the endpoint exposes up to **62 tools**: 52 Read, 3 Sensitive execution, and 7 Write. Four Read tools depend on optional documentation and service-status integrations; another four tools (2 Read and 2 Write) depend on the per-workspace `MCPAudienceActivation` feature flag.
 
-Feature-flag administration is not part of this hosted user endpoint. In particular, there is no `set_feature_flag` tool on `/mcp`; feature-flag controls belong to a separate administrative surface.
+Feature-flag administration is not part of this hosted user endpoint. In particular, there is no `flagsmith_set_feature_flag` tool on `/mcp`; feature-flag controls belong to a separate administrative surface.
