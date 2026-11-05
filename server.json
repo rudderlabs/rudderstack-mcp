@@ -3,7 +3,7 @@
   "name": "io.github.rudderlabs/rudderstack-mcp",
   "title": "RudderStack",
   "description": "Inspect and manage RudderStack pipelines, schemas, transformations, audiences, and workspaces.",
-  "version": "1.0.0",
+  "version": "0.42.0",
   "websiteUrl": "https://www.rudderstack.com/docs/ai-features/rudderstack-mcp/",
   "repository": {
     "url": "https://github.com/rudderlabs/rudderstack-mcp",

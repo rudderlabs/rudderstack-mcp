@@ -49,17 +49,18 @@ Add a custom MCP server with command `npx` and arguments `-y`, `mcp-remote`, and
 
 ## Authentication and permissions
 
-RudderStack uses OAuth 2.0 with PKCE and dynamic client registration. A compatible client discovers the authorization metadata, opens RudderStack login in your browser, and stores the resulting credentials according to that client's security model.
+RudderStack uses OAuth 2.0 with PKCE and accepts client ID metadata documents alongside dynamic client registration. A compatible client discovers the authorization metadata, opens RudderStack login in your browser, and stores the resulting credentials according to that client's security model.
 
-Tools run with the permissions of the RudderStack user and workspace you authorize. Review tool calls before approving them, especially write operations.
+Tools run with the permissions of the RudderStack user and workspace you authorize. Review tool calls before approving them, especially write operations. Workspace tools require `workspace_id` (or `workspaceId`) from `user_details` on every call; the endpoint is stateless.
 
 ## Tool access
 
-Most tools inspect workspace settings, pipelines, schemas, metrics, profiles, audiences, documentation, and service status. Some tools make control-plane changes, including:
+Most tools inspect workspace settings, pipelines, schemas, metrics, profiles, audiences, documentation, and service status. Some tools make control-plane changes or trigger syncs, including:
 
-- switching the active workspace for the MCP session;
 - creating or updating audiences;
 - connecting audiences to destinations;
+- creating rETL audience activations;
+- triggering audience-activation syncs;
 - creating or updating transformations; and
 - connecting transformations to destinations.
 
