@@ -43,6 +43,20 @@ Create `.vscode/mcp.json` in your workspace using [`examples/.vscode/mcp.json`](
 
 Copy [`examples/.cursor/mcp.json`](examples/.cursor/mcp.json) to `.cursor/mcp.json`, then enable `rudderstack` in **Settings → Tools & Integrations → MCP Tools**.
 
+### Cline
+
+In Cline, open **MCP Servers → Remote Servers**, add a server named `rudderstack` with URL `https://mcp.rudderstack.com/mcp` and transport **Streamable HTTP**, then sign in to RudderStack in the browser when prompted.
+
+### Gemini CLI
+
+Install the extension from this repository:
+
+```bash
+gemini extensions install https://github.com/rudderlabs/rudderstack-mcp
+```
+
+Then run `/mcp auth rudderstack` in Gemini CLI, sign in to RudderStack in the browser, and approve access. The extension manifest is [`gemini-extension.json`](gemini-extension.json).
+
 ### Windsurf and other clients
 
 Add a custom MCP server with command `npx` and arguments `-y`, `mcp-remote`, and `https://mcp.rudderstack.com/mcp`. Clients with native Streamable HTTP support can use the endpoint directly.
