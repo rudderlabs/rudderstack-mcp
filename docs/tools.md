@@ -27,12 +27,12 @@ The hosted service also provides a separately controlled read-only web surface. 
 | --- | --- | --- |
 | `list_sources` | Read | List configured event-stream and Reverse ETL sources. |
 | `get_source` | Read | Get source configuration, tracking plans, and connected destinations. |
-| `get_source_definitions` | Read | Get source-definition metadata, schemas, and capabilities. |
-| `get_source_event_schemas` | Read | Get incoming event schemas for a source. |
+| `get_source_definitions` | Read | Get source-definition metadata and capabilities, with configuration schemas when requested. |
+| `get_source_event_schemas` | Read | List observed event types and names for a source, with counts and first/last seen times. |
 | `get_source_event_metrics` | Read | Get source event-volume and filtering metrics. |
 | `get_source_tracking_plans_and_versions` | Read | Get a source's tracking-plan associations and versions. |
 | `get_source_tracking_plan_event_metrics` | Read | Get tracking-plan validation and violation metrics. |
-| `get_source_tracking_plan_event_violations` | Read | Get tracking-plan validation failures and redacted samples when available. |
+| `get_source_tracking_plan_event_violations` | Read | Get tracking-plan validation failures and optional sample events with PII-masked properties. |
 | `get_source_event_names_similarity` | Read | Find similar or duplicate source event names. |
 | `get_source_event_properties` | Read | Get observed property types and frequency for an event. |
 
@@ -71,7 +71,7 @@ The hosted service also provides a separately controlled read-only web surface. 
 | `get_warehouse_uploads` | Read | Get warehouse upload history, status, and optional table details. |
 | `get_warehouse_upload_with_tables` | Read | Get table-level details for one warehouse upload. |
 | `get_retl_source_syncs` | Read | Get Reverse ETL sync results, metrics, and timing. |
-| `get_retl_failed_records` | Read | Get failed records for a Reverse ETL sync run. |
+| `get_retl_failed_records` | Read | Page and filter a finished Reverse ETL run's failed destination records (first 5,000 per run unless filtered). Errors may contain customer data; warehouse queries incur customer charges. |
 | `list_tracking_plans` | Read | List tracking plans and governance rules. |
 | `list_tracking_plan_events` | Read | List tracking-plan events and optional schemas. |
 | `list_data_catalog_events` | Read | List events in the data catalog. |
@@ -97,14 +97,14 @@ The hosted service also provides a separately controlled read-only web surface. 
 | `create_audience` | **Write** | Create and persist a data-graph audience. |
 | `update_audience` | **Write** | Update a persisted data-graph audience. |
 | `get_audience` | Read | Get an audience and its stored expression and metadata. |
-| `preview_audience` | **Sensitive execution** | Submit temporary warehouse preview work to estimate audience size. |
+| `preview_audience` | **Sensitive execution** | Submit temporary warehouse work to estimate matching rows, total subject rows, and audience percentage. |
 
 ## Activation
 
 | Tool | Access | Purpose |
 | --- | --- | --- |
-| `get_audience_destination_schema` | Read | Discover valid destination fields and destination-side audiences. |
-| `connect_audience_destination` | **Write** | Persist an audience-to-destination activation connection. |
+| `get_audience_destination_schema` | Read | Discover destination identifier fields, existing audiences, and mapping guidance for activation. |
+| `connect_audience_destination` | **Write** | Connect a data-graph audience to an existing destination audience with identifier mappings; mirrored syncs remove nonmembers from the destination audience. |
 
 ## Audience activation (rETL)
 
