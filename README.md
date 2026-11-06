@@ -1,20 +1,15 @@
 # RudderStack MCP
 
-[![Add to Cursor](assets/badges/cursor.svg)](https://cursor.com/en-US/install-mcp?name=RudderStack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
-[![Install in VS Code](assets/badges/vscode.svg)](https://insiders.vscode.dev/redirect/mcp/install?name=rudderstack&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.rudderstack.com%2Fmcp%22%7D)
-[![Install in Visual Studio](assets/badges/visual-studio.svg)](https://aka.ms/vs/mcp-install?%7B%22name%22%3A%22rudderstack%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.rudderstack.com%2Fmcp%22%7D)
-[![Add to Kiro](assets/badges/kiro.svg)](https://kiro.dev/launch/mcp/add?name=rudderstack&config=%7B%22url%22%3A%22https%3A%2F%2Fmcp.rudderstack.com%2Fmcp%22%7D)
-[![Install in Goose](assets/badges/goose.svg)](https://block.github.io/goose/extension?url=https%3A%2F%2Fmcp.rudderstack.com%2Fmcp&type=streamable_http&id=rudderstack&name=RudderStack&description=Manage%20your%20RudderStack%20workspace%20from%20Goose)
-[![Add to LM Studio](assets/badges/lm-studio.svg)](https://lmstudio.ai/install-mcp?name=rudderstack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
+[![Add to Cursor](https://img.shields.io/badge/Cursor-Install-000000?style=for-the-badge&logo=cursor&logoColor=white)](https://cursor.com/en-US/install-mcp?name=RudderStack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=for-the-badge)](https://insiders.vscode.dev/redirect/mcp/install?name=rudderstack&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.rudderstack.com%2Fmcp%22%7D)
+[![Add to LM Studio](https://img.shields.io/badge/LM_Studio-Install-4F46E5?style=for-the-badge&logo=lmstudio&logoColor=white)](https://lmstudio.ai/install-mcp?name=rudderstack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
 
-[![Works with Claude](assets/badges/claude.svg)](#claude)
-[![Works with Claude Code](assets/badges/claude-code.svg)](#claude-code)
-[![Works with ChatGPT](assets/badges/chatgpt.svg)](#chatgpt)
-[![Works with Codex](assets/badges/codex.svg)](#codex)
-[![Works with Gemini CLI](assets/badges/gemini-cli.svg)](#gemini-cli)
-[![Works with Cline](assets/badges/cline.svg)](#cline)
-[![Works with Windsurf](assets/badges/windsurf.svg)](#windsurf-and-other-clients)
-[![Docker MCP Catalog, coming soon](assets/badges/docker.svg)](https://github.com/docker/mcp-registry/pull/6695)
+[![Works with Claude](https://img.shields.io/badge/Claude-Setup-D97757?style=for-the-badge&logo=claude&logoColor=white)](#claude)
+[![Works with Claude Code](https://img.shields.io/badge/Claude_Code-Setup-D97757?style=for-the-badge&logo=claude&logoColor=white)](#claude-code)
+[![Works with Gemini CLI](https://img.shields.io/badge/Gemini_CLI-Setup-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)](#gemini-cli)
+[![Works with Cline](https://img.shields.io/badge/Cline-Setup-555555?style=for-the-badge&logo=cline&logoColor=white)](#cline)
+[![Works with Windsurf](https://img.shields.io/badge/Windsurf-Setup-0B100F?style=for-the-badge&logo=windsurf&logoColor=white)](#windsurf-and-other-clients)
+[![Docker MCP Catalog, coming soon](https://img.shields.io/badge/Docker-Coming_soon-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://github.com/docker/mcp-registry/pull/6695)
 
 [![Official MCP Registry](https://img.shields.io/badge/MCP_Registry-published-10b981?style=flat&logo=modelcontextprotocol&logoColor=white&labelColor=1e293b)](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.rudderlabs/rudderstack-mcp)
 [![AllMCPs Verified](https://allmcps.com/api/badge/rudderstack-mcp)](https://allmcps.com/mcp/rudderstack-mcp?verify=1d39113b-927a-479a-a499-80c4a7be74e4)
@@ -98,6 +93,15 @@ gemini extensions install https://github.com/rudderlabs/rudderstack-mcp
 ```
 
 Then run `/mcp auth rudderstack` in Gemini CLI, sign in to RudderStack in the browser, and approve access. The extension manifest is [`gemini-extension.json`](gemini-extension.json).
+
+### Pi
+
+```bash
+pi mcp add rudderstack --url https://mcp.rudderstack.com/mcp
+pi mcp login rudderstack
+```
+
+The login opens a browser so you can sign in to RudderStack.
 
 ### Windsurf and other clients
 
