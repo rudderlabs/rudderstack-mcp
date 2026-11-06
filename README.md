@@ -64,7 +64,7 @@ Most tools inspect workspace settings, pipelines, schemas, metrics, profiles, au
 - creating or updating transformations; and
 - connecting transformations to destinations.
 
-Transformation tests and audience previews do not persist control-plane configuration, but they can execute code or submit temporary work. See [`docs/tools.md`](docs/tools.md) for every tool exposed by the hosted `/mcp` endpoint, its classification, and conditionally available tools.
+Transformation tests, audience previews, Reverse ETL failed-record reads, and audience-activation planning do not persist control-plane configuration, but they can execute code or submit temporary warehouse work. See [`docs/tools.md`](docs/tools.md) for every tool exposed by the hosted `/mcp` endpoint, its classification, and conditionally available tools.
 
 ## Security and support
 
