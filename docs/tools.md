@@ -81,7 +81,7 @@ The hosted service also provides a separately controlled read-only web surface. 
 
 | Tool | Access | Purpose |
 | --- | --- | --- |
-| `get_live_events` | Read | Poll real-time events for the sources, destinations, or transformations you name. Turns on live-event capture for them, which stays on for about 5 minutes. |
+| `get_live_events` | Read | Poll real-time events for the sources, destinations, or transformations you name. Turns on live-event capture for them and refreshes it while polling; capture stays on for about 5 minutes after the last refresh. |
 | `list_profiles` | Read | List profile projects for the workspace. |
 | `get_profile_details` | Read | Get profile models, statistics, cohort features, or history. |
 | `get_profile_artifacts` | Read | List task artifacts or retrieve artifact-file content. |
@@ -108,7 +108,7 @@ The hosted service also provides a separately controlled read-only web surface. 
 
 ## Audience activation (rETL)
 
-These four tools are available only for workspaces with audience activation enabled.
+These four tools are available only for workspaces with audience activation enabled. They operate on SQL-defined Reverse ETL audience sources (`sql-audience`, discoverable with `list_sources`), not data-graph audiences. To connect a data-graph audience to a destination, use `connect_audience_destination`.
 
 | Tool | Access | Purpose |
 | --- | --- | --- |
