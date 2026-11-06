@@ -1,6 +1,22 @@
 # RudderStack MCP
 
+[![Add to Cursor](https://img.shields.io/badge/Cursor-Install-000000?style=for-the-badge&logo=cursor&logoColor=white)](https://cursor.com/install-mcp?name=RudderStack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=for-the-badge)](https://insiders.vscode.dev/redirect/mcp/install?name=rudderstack&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.rudderstack.com%2Fmcp%22%7D)
+[![Add to LM Studio](https://img.shields.io/badge/LM_Studio-Install-4F46E5?style=for-the-badge&logo=lmstudio&logoColor=white)](https://lmstudio.ai/install-mcp?name=rudderstack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
+
+[![Works with Claude](https://img.shields.io/badge/Claude-Setup-D97757?style=for-the-badge&logo=claude&logoColor=white)](#claude)
+[![Works with Claude Code](https://img.shields.io/badge/Claude_Code-Setup-D97757?style=for-the-badge&logo=claude&logoColor=white)](#claude-code)
+[![Works with Gemini CLI](https://img.shields.io/badge/Gemini_CLI-Setup-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)](#gemini-cli)
+[![Works with Cline](https://img.shields.io/badge/Cline-Setup-555555?style=for-the-badge&logo=cline&logoColor=white)](#cline)
+[![Works with Windsurf](https://img.shields.io/badge/Windsurf-Setup-0B100F?style=for-the-badge&logo=windsurf&logoColor=white)](#windsurf-and-other-clients)
+[![Docker MCP Catalog, coming soon](https://img.shields.io/badge/Docker-Coming_soon-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://github.com/docker/mcp-registry/pull/6695)
+
+[![Official MCP Registry](https://img.shields.io/badge/MCP_Registry-published-10b981?style=flat&logo=modelcontextprotocol&logoColor=white&labelColor=1e293b)](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.rudderlabs/rudderstack-mcp)
 [![AllMCPs Verified](https://allmcps.com/api/badge/rudderstack-mcp)](https://allmcps.com/mcp/rudderstack-mcp?verify=1d39113b-927a-479a-a499-80c4a7be74e4)
+[![Featured on Glama](https://img.shields.io/badge/Glama-featured-10b981?style=flat&labelColor=1e293b)](https://glama.ai/mcp/connectors/com.rudderstack.mcp/rudder-stack-mcp)
+[![Featured on Toolradar](https://img.shields.io/badge/Toolradar-featured-10b981?style=flat&labelColor=1e293b)](https://toolradar.com/tools/rudderstack-mcp)
+[![Featured on MCP Repository](https://img.shields.io/badge/MCP_Repository-featured-10b981?style=flat&labelColor=1e293b)](https://mcprepository.com/rudderlabs/rudderstack-mcp)
+[![Featured on mcpservers.org](https://img.shields.io/badge/mcpservers.org-featured-10b981?style=flat&labelColor=1e293b)](https://mcpservers.org/servers/www-rudderstack-com-docs-ai-features-rudderstack-mcp-connect)
 
 Connect AI assistants and developer tools to your RudderStack workspace through the hosted [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server.
 
@@ -23,6 +39,14 @@ https://mcp.rudderstack.com/mcp
 
 On the first connection, the client opens a browser so you can sign in to RudderStack and authorize access. No token or client secret belongs in these configuration files.
 
+### Claude Code
+
+```bash
+claude mcp add --transport http --scope user rudderstack https://mcp.rudderstack.com/mcp
+```
+
+Then run `/mcp` in Claude Code, select `rudderstack`, choose **Authenticate**, and sign in to RudderStack in the browser.
+
 ### Claude
 
 In **Settings → Connectors**, choose **Add custom connector**, name it `RudderStack`, and enter `https://mcp.rudderstack.com/mcp`.
@@ -34,6 +58,21 @@ npx -y mcp-remote https://mcp.rudderstack.com/mcp
 ```
 
 See [`examples/.mcp.json`](examples/.mcp.json) for the corresponding JSON configuration.
+
+### ChatGPT
+
+Until RudderStack is in the ChatGPT app directory, add it as a custom MCP server: open **Plugins**, select **+**, choose **Add custom MCP server**, name it `RudderStack`, enter `https://mcp.rudderstack.com/mcp`, choose OAuth, then sign in to RudderStack. If the option is missing, turn on **Developer mode** under **Settings → Security and Login**, or ask your workspace admin to allow custom MCP servers. See OpenAI's guide: [Connecting custom MCP servers in ChatGPT](https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt).
+
+### Codex
+
+Add to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.rudderstack]
+url = "https://mcp.rudderstack.com/mcp"
+```
+
+Then run `codex mcp login rudderstack` and sign in to RudderStack in the browser.
 
 ### VS Code
 
@@ -56,6 +95,15 @@ gemini extensions install https://github.com/rudderlabs/rudderstack-mcp
 ```
 
 Then run `/mcp auth rudderstack` in Gemini CLI, sign in to RudderStack in the browser, and approve access. The extension manifest is [`gemini-extension.json`](gemini-extension.json).
+
+### Pi
+
+```bash
+pi mcp add rudderstack --url https://mcp.rudderstack.com/mcp
+pi mcp login rudderstack
+```
+
+The login opens a browser so you can sign in to RudderStack.
 
 ### Windsurf and other clients
 
