@@ -13,10 +13,10 @@
 
 [![Official MCP Registry](https://img.shields.io/badge/MCP_Registry-published-10b981?style=flat&logo=modelcontextprotocol&logoColor=white&labelColor=1e293b)](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.rudderlabs/rudderstack-mcp)
 [![AllMCPs Verified](https://allmcps.com/api/badge/rudderstack-mcp)](https://allmcps.com/mcp/rudderstack-mcp?verify=1d39113b-927a-479a-a499-80c4a7be74e4)
-[![Listed on Glama](https://img.shields.io/badge/Glama-listed-10b981?style=flat&labelColor=1e293b)](https://glama.ai/mcp/connectors/com.rudderstack.mcp/rudder-stack-mcp)
-[![Listed on Toolradar](https://img.shields.io/badge/Toolradar-listed-10b981?style=flat&labelColor=1e293b)](https://toolradar.com/tools/rudderstack-mcp)
-[![Listed on MCP Repository](https://img.shields.io/badge/MCP_Repository-listed-10b981?style=flat&labelColor=1e293b)](https://mcprepository.com/rudderlabs/rudderstack-mcp)
-[![Listed on mcpservers.org](https://img.shields.io/badge/mcpservers.org-listed-10b981?style=flat&labelColor=1e293b)](https://mcpservers.org/servers/www-rudderstack-com-docs-ai-features-rudderstack-mcp-connect)
+[![Featured on Glama](https://img.shields.io/badge/Glama-featured-10b981?style=flat&labelColor=1e293b)](https://glama.ai/mcp/connectors/com.rudderstack.mcp/rudder-stack-mcp)
+[![Featured on Toolradar](https://img.shields.io/badge/Toolradar-featured-10b981?style=flat&labelColor=1e293b)](https://toolradar.com/tools/rudderstack-mcp)
+[![Featured on MCP Repository](https://img.shields.io/badge/MCP_Repository-featured-10b981?style=flat&labelColor=1e293b)](https://mcprepository.com/rudderlabs/rudderstack-mcp)
+[![Featured on mcpservers.org](https://img.shields.io/badge/mcpservers.org-featured-10b981?style=flat&labelColor=1e293b)](https://mcpservers.org/servers/www-rudderstack-com-docs-ai-features-rudderstack-mcp-connect)
 
 Connect AI assistants and developer tools to your RudderStack workspace through the hosted [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server.
 
