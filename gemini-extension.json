@@ -1,0 +1,10 @@
+{
+  "name": "rudderstack-mcp",
+  "version": "0.43.1",
+  "description": "Connect Gemini CLI to your RudderStack workspace: inspect pipelines, event delivery, tracking plans and warehouse loads, and manage transformations and audiences.",
+  "mcpServers": {
+    "rudderstack": {
+      "httpUrl": "https://mcp.rudderstack.com/mcp"
+    }
+  }
+}
