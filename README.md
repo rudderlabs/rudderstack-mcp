@@ -1,6 +1,6 @@
 # RudderStack MCP
 
-[![Add to Cursor](https://img.shields.io/badge/Cursor-Install-000000?style=for-the-badge&logo=cursor&logoColor=white)](https://cursor.com/en-US/install-mcp?name=RudderStack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
+[![Add to Cursor](https://img.shields.io/badge/Cursor-Install-000000?style=for-the-badge&logo=cursor&logoColor=white)](https://cursor.com/install-mcp?name=RudderStack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=for-the-badge)](https://insiders.vscode.dev/redirect/mcp/install?name=rudderstack&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.rudderstack.com%2Fmcp%22%7D)
 [![Add to LM Studio](https://img.shields.io/badge/LM_Studio-Install-4F46E5?style=for-the-badge&logo=lmstudio&logoColor=white)](https://lmstudio.ai/install-mcp?name=rudderstack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
 
@@ -45,6 +45,8 @@ On the first connection, the client opens a browser so you can sign in to Rudder
 claude mcp add --transport http --scope user rudderstack https://mcp.rudderstack.com/mcp
 ```
 
+Then run `/mcp` in Claude Code, select `rudderstack`, choose **Authenticate**, and sign in to RudderStack in the browser.
+
 ### Claude
 
 In **Settings → Connectors**, choose **Add custom connector**, name it `RudderStack`, and enter `https://mcp.rudderstack.com/mcp`.
@@ -59,7 +61,7 @@ See [`examples/.mcp.json`](examples/.mcp.json) for the corresponding JSON config
 
 ### ChatGPT
 
-Until RudderStack is in the ChatGPT app directory, add it as a custom connector: **Settings → Apps & Connectors → Advanced settings**, turn on **Developer mode**, choose **Create**, enter `https://mcp.rudderstack.com/mcp` with OAuth, then sign in to RudderStack.
+Until RudderStack is in the ChatGPT app directory, add it as a custom MCP server: open **Plugins**, select **+**, choose **Add custom MCP server**, name it `RudderStack`, enter `https://mcp.rudderstack.com/mcp`, choose OAuth, then sign in to RudderStack. If the option is missing, turn on **Developer mode** under **Settings → Security and Login**, or ask your workspace admin to allow custom MCP servers. See OpenAI's guide: [Connecting custom MCP servers in ChatGPT](https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt).
 
 ### Codex
 
