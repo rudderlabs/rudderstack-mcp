@@ -2,8 +2,9 @@ name: Publish to MCP Registry
 
 on:
   workflow_dispatch:
-  release:
-    types: [published]
+  push:
+    branches: [main]
+    paths: [server.json]
 
 permissions: {}
 
@@ -14,7 +15,10 @@ concurrency:
 jobs:
   publish:
     name: Publish server.json
+    # Only reviewed content on main gets published, including manual runs.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       id-token: write # OIDC login to the MCP Registry
       contents: read
@@ -23,12 +27,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
       - name: Install cosign
-        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+        uses: sigstore/cosign-installer@d7d6bc7722e3daa8354c50bcb52f4837da5e9b6a # v3.8.1 (org allowlist), installs cosign v2.4.3
 
       - name: Download and verify mcp-publisher
         run: |
