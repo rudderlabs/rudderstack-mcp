@@ -1,5 +1,6 @@
 # RudderStack MCP
 
+[![Add to ChatGPT and Codex](https://img.shields.io/badge/ChatGPT_·_Codex-Add_plugin-10A37F?style=for-the-badge)](https://chatgpt.com/plugins/plugin_asdk_app_6aebf323cd988191908f165b9d1aba1e)
 [![Add to Cursor](https://img.shields.io/badge/Cursor-Install-000000?style=for-the-badge&logo=cursor&logoColor=white)](https://cursor.com/install-mcp?name=RudderStack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=for-the-badge)](https://insiders.vscode.dev/redirect/mcp/install?name=rudderstack&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.rudderstack.com%2Fmcp%22%7D)
 [![Add to LM Studio](https://img.shields.io/badge/LM_Studio-Install-4F46E5?style=for-the-badge&logo=lmstudio&logoColor=white)](https://lmstudio.ai/install-mcp?name=rudderstack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
@@ -61,11 +62,13 @@ See [`examples/.mcp.json`](examples/.mcp.json) for the corresponding JSON config
 
 ### ChatGPT
 
-Until RudderStack is in the ChatGPT app directory, add it as a custom MCP server: open **Plugins**, select **+**, choose **Add custom MCP server**, name it `RudderStack`, enter `https://mcp.rudderstack.com/mcp`, choose OAuth, then sign in to RudderStack. If the option is missing, turn on **Developer mode** under **Settings → Security and Login**, or ask your workspace admin to allow custom MCP servers. See OpenAI's guide: [Connecting custom MCP servers in ChatGPT](https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt).
+Add the [RudderStack plugin](https://chatgpt.com/plugins/plugin_asdk_app_6aebf323cd988191908f165b9d1aba1e) from the ChatGPT plugin directory and sign in to RudderStack when prompted.
+
+To add it by hand instead, add it as a custom MCP server: open **Plugins**, select **+**, choose **Add custom MCP server**, name it `RudderStack`, enter `https://mcp.rudderstack.com/mcp`, choose OAuth, then sign in to RudderStack. If the option is missing, turn on **Developer mode** under **Settings → Security and Login**, or ask your workspace admin to allow custom MCP servers. See OpenAI's guide: [Connecting custom MCP servers in ChatGPT](https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt).
 
 ### Codex
 
-Add to `~/.codex/config.toml`:
+The same [RudderStack plugin](https://chatgpt.com/plugins/plugin_asdk_app_6aebf323cd988191908f165b9d1aba1e) works in Codex. To add the server by hand instead, add to `~/.codex/config.toml`:
 
 ```toml
 [mcp_servers.rudderstack]
