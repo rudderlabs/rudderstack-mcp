@@ -3,8 +3,8 @@
 [![Add to Cursor](https://img.shields.io/badge/Cursor-Install-000000?style=for-the-badge&logo=cursor&logoColor=white)](https://cursor.com/install-mcp?name=RudderStack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=for-the-badge)](https://insiders.vscode.dev/redirect/mcp/install?name=rudderstack&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.rudderstack.com%2Fmcp%22%7D)
 [![Add to LM Studio](https://img.shields.io/badge/LM_Studio-Install-4F46E5?style=for-the-badge&logo=lmstudio&logoColor=white)](https://lmstudio.ai/install-mcp?name=rudderstack&config=eyJ1cmwiOiJodHRwczovL21jcC5ydWRkZXJzdGFjay5jb20vbWNwIn0%3D)
+[![Add to Claude](https://img.shields.io/badge/Claude-Add_connector-D97757?style=for-the-badge&logo=claude&logoColor=white)](https://claude.ai/directory/rudderstack)
 
-[![Works with Claude](https://img.shields.io/badge/Claude-Setup-D97757?style=for-the-badge&logo=claude&logoColor=white)](#claude)
 [![Works with Claude Code](https://img.shields.io/badge/Claude_Code-Setup-D97757?style=for-the-badge&logo=claude&logoColor=white)](#claude-code)
 [![Works with Gemini CLI](https://img.shields.io/badge/Gemini_CLI-Setup-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)](#gemini-cli)
 [![Works with Cline](https://img.shields.io/badge/Cline-Setup-555555?style=for-the-badge&logo=cline&logoColor=white)](#cline)
@@ -49,7 +49,9 @@ Then run `/mcp` in Claude Code, select `rudderstack`, choose **Authenticate**, a
 
 ### Claude
 
-In **Settings → Connectors**, choose **Add custom connector**, name it `RudderStack`, and enter `https://mcp.rudderstack.com/mcp`.
+Add RudderStack from the [Claude connectors directory](https://claude.ai/directory/rudderstack) and sign in to RudderStack when prompted.
+
+To add it by hand instead, in **Settings → Connectors**, choose **Add custom connector**, name it `RudderStack`, and enter `https://mcp.rudderstack.com/mcp`.
 
 For clients that require a local stdio command, use:
 
