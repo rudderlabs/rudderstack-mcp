@@ -4,7 +4,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "mcp-remote",
+        "mcp-remote@0.16.0",
         "https://mcp.rudderstack.com/mcp"
       ]
     }

@@ -56,7 +56,7 @@ To add it by hand instead, in **Settings → Connectors**, choose **Add custom c
 For clients that require a local stdio command, use:
 
 ```bash
-npx -y mcp-remote https://mcp.rudderstack.com/mcp
+npx -y mcp-remote@0.16.0 https://mcp.rudderstack.com/mcp
 ```
 
 See [`examples/.mcp.json`](examples/.mcp.json) for the corresponding JSON configuration.
@@ -109,7 +109,7 @@ The login opens a browser so you can sign in to RudderStack.
 
 ### Windsurf and other clients
 
-Add a custom MCP server with command `npx` and arguments `-y`, `mcp-remote`, and `https://mcp.rudderstack.com/mcp`. Clients with native Streamable HTTP support can use the endpoint directly.
+Add a custom MCP server with command `npx` and arguments `-y`, `mcp-remote@0.16.0`, and `https://mcp.rudderstack.com/mcp`. Clients with native Streamable HTTP support can use the endpoint directly.
 
 ## Authentication and permissions
 
